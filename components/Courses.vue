@@ -10,11 +10,11 @@
       <div
         v-for="course in courses"
         :key="course.id"
-        class="border rounded-lg bg-gray-100 hover:shadow-lg shadow-md"
+        class="border rounded-lg bg-gray-100 hover:shadow-lg shadow-md flex flex-col"
       >
         <nuxt-link :to="`/courses/${course.slug}`">
-          <div class="rounded-t-lg bg-white pt-2 pb-2">
-            <img class="crop mx-auto" :src="course.image" />
+          <div class="rounded-t-lg bg-white overflow-hidden h-48">
+            <img class="object-contain" :src="course.image" />
           </div>
           <div class="pl-4 pr-4 pb-4 pt-4 rounded-lg">
             <h4
@@ -47,9 +47,4 @@ export default {
 };
 </script>
 
-<style>
-.crop {
-  width: 180px;
-  height: 180px;
-}
-</style>
+<style></style>
