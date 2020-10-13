@@ -7,9 +7,10 @@
     </nuxt-link>
 
     <div class="flex items-center space-x-4">
-      <button class="snipcart-customer-signin">
+      <nuxt-link v-if="this.$strapi.user" to="/">My Courses</nuxt-link>
+      <nuxt-link v-else class="snipcart-customer-signin" to="/login">
         login
-      </button>
+      </nuxt-link>
       <button class="snipcart-checkout flex items-center">
         <Cart />
         <span
