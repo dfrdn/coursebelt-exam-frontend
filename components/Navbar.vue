@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-between ml-6 mr-6 mt-4">
     <nuxt-link to="/">
-      <span class="emoji">
+      <span>
         <img src="~/assets/logo.png" class="logo" height="150" width="150" />
       </span>
     </nuxt-link>
@@ -35,8 +35,4 @@ export default {
 };
 </script>
 
-<style>
-.emoji {
-  font-size: 30px;
-}
-</style>
+<style></style>
