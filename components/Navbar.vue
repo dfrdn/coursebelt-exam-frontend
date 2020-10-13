@@ -7,9 +7,12 @@
     </nuxt-link>
 
     <div class="flex items-center space-x-4">
-      <nuxt-link v-if="this.$strapi.user" to="/">My Courses</nuxt-link>
-      <nuxt-link v-else class="snipcart-customer-signin" to="/login">
-        login
+      <div v-if="$strapi.user" class="space-x-4">
+        <nuxt-link to="/mycourses">My Courses</nuxt-link>
+        <button @click="logout">Logout</button>
+      </div>
+      <nuxt-link v-else to="/login">
+        Login
       </nuxt-link>
       <button class="snipcart-checkout flex items-center">
         <Cart />
@@ -22,7 +25,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    async logout() {
+      let res = await this.$strapi.logout();
+      this.$router.push("/");
+    },
+  },
+};
 </script>
 
 <style>

@@ -6,7 +6,7 @@
       <div class="rounded-t-lg pt-2 pb-2">
         <img :src="course.image" class="m-auto" />
       </div>
-      <div class="w-full p-5 flex flex-col justify-between">
+      <div class="w-full p-5 flex flex-col justify-end space-y-16">
         <div>
           <h4
             class="mt-1 font-semibold text-lg leading-tight truncate text-gray-700"
@@ -43,8 +43,22 @@
             >
           </div>
         </div>
-        {{ course.topics }}
       </div>
+    </div>
+
+    <div
+      class="video-player-box"
+      playsinline="true"
+      v-video-player:myVideoPlayer="playerOptions"
+    ></div>
+    <h2 class="text-3xl">Curriculum</h2>
+    <div v-for="module in course.modules" :key="module.title">
+      <h2 class="text-2xl">{{ module.title }}</h2>
+      <ol>
+        <li v-for="topic in module.topics" :key="topic.title">
+          {{ topic.title }}
+        </li>
+      </ol>
     </div>
   </div>
 
@@ -61,6 +75,7 @@ export default {
     return {
       course: null,
       error: null,
+      playerOptions: {},
     };
   },
   async mounted() {
@@ -75,6 +90,17 @@ export default {
 
     try {
       this.course = await this.$strapi.$courses.findOne(this.$route.params.id);
+      this.playerOptions = {
+        muted: true,
+        language: "en",
+        playbackRates: [0.7, 1.0, 1.5, 2.0],
+        sources: [
+          {
+            type: "video/mp4",
+            src: this.course.video_preview,
+          },
+        ],
+      };
     } catch (error) {
       this.error = error;
     }

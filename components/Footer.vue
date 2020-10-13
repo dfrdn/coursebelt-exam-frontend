@@ -1,22 +1,8 @@
 <template>
   <div class="flex justify-between m-6">
     <p class="text-xs font-semibold text-gray-600">
-      Strapi Starter Nuxt.js E-commerce
+      &copy; Daniel Fordan 2020.
     </p>
-    <div class="flex">
-      <a href="https://twitter.com/strapijs" class="max-w-xs ml-4">
-        <Twitter />
-      </a>
-      <a href="https://facebook.com/strapijs" class="ml-3">
-        <Facebook />
-      </a>
-      <a
-        href="https://github.com/strapi/strapi-starter-nuxt-e-commerce"
-        class="ml-3"
-      >
-        <Github />
-      </a>
-    </div>
   </div>
 </template>
 <script>

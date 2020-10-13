@@ -1,3 +1,5 @@
+import { videoPlayer } from "vue-video-player/dist/ssr";
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -60,12 +62,12 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ["video.js/dist/video-js.css"],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: ["~plugins/videoPlayer.client.js"],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
