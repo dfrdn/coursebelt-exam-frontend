@@ -12,12 +12,6 @@ export default {
     };
   },
   async mounted() {
-    document.addEventListener("snipcart.ready", () => {
-      Snipcart.events.on("cart.confirmed", (cartConfirmResponse) => {
-        console.log(cartConfirmResponse);
-      });
-    });
-
     try {
       this.courses = await this.$strapi.$courses.find();
     } catch (error) {
