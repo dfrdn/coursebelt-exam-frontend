@@ -1,5 +1,5 @@
 <template>
-  <Products :products="this.category.courses" :error="error" />
+  <courses :courses="this.category.courses" :error="error" />
 </template>
 
 <script>
